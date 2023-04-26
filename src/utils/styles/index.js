@@ -1,5 +1,5 @@
 //Ce fichier permet de centraliser les styles de l'application
-import './fonts.css';
+import { font } from './fonts'
 import { colors } from "./colors";
 
-export { colors }
+export { colors, font }
