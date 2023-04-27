@@ -4,5 +4,6 @@ export const colors = {
     violet_clair: '#E3BAC6',
     violet: '#BC9EC1',
     gris: '#596475',
-    noir: '#1F2232'
+    noir: '#1F2232',
+    ombre: 'rgb(89, 100, 117, 0.4)'
 }

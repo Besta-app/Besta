@@ -1,4 +1,4 @@
-export const font = {
+export const fonts = {
     titre: 'Montserrat, sans serif',
-    texte: 'Roboto'
+    texte: 'Roboto, sans serif'
 }

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from '../styles';
+import { colors, fonts } from '../styles';
 import './fonts.css';
 
 const StyledGlobalStyles = createGlobalStyle`
@@ -7,7 +7,7 @@ const StyledGlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Archivo Black', sans-serif;
+        font-family: ${fonts.texte};
         background-color: ${colors.blanc};
     }
 `
