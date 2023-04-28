@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../utils/styles';
 import { Link } from 'react-router-dom';
 
-const StyledBouton = styled.button`
+export const StyledBouton = styled.button`
+    width: 15vw;
+    height: 5vh;
     cursor: pointer;
     background-image: linear-gradient(to right, ${colors.gris}, ${colors.noir});
     color: ${colors.blanc};
@@ -10,8 +12,7 @@ const StyledBouton = styled.button`
     border: none;
     border-radius: 10px;
     font-family: ${fonts.titre};
-    font-size: 1.1rem;
-    padding: 0.5rem 3rem;
+    font-size: 100%;
     &:focus{
         outline: none;
     }
