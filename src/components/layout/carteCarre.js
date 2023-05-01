@@ -15,10 +15,10 @@ const BoutonCarre = styled(Bouton)`
     padding: 0.5rem 0.75rem;
 `;
 
-function carteCarre(){
+function carteCarre({texte}){
     return(
         <StyledCarteCarre>
-            <H2Carte>Carte Carre</H2Carte>
+            <H2Carte>{texte}</H2Carte>
             <BoutonCarre texte={'Voir les détails'} />
             <BoutonCarre texte={'Modifier'} />
             <BoutonCarre texte={'Supprimer'} />
