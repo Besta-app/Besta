@@ -11,6 +11,7 @@ export const StyledCarte = styled.div`
     width: 300px;
     height: 480px;
     padding-bottom: 1rem;
+    margin: 1rem;
 `;
 
 const DivImage = styled.div`
@@ -46,7 +47,7 @@ const PCarteEvenement = styled.p`
     }
 `;
 
-function CarteEvenement({ titreEvenement, dateEvenement, descriptionEvenement, imageEvenement, lienEvenement }) {
+function CarteEvenement({ titreEvenement='Fiesta boom bomm', dateEvenement='01/01/01', descriptionEvenement='test', imageEvenement, lienEvenement }) {
     return (
         <StyledCarte>
             <DivImage imageEvenement={imageEvenement} />

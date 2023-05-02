@@ -11,7 +11,7 @@ import Home from "./pages/Home/Home";
 import Map from "./pages/Map/map";
 import Evenements from "./pages/Evenements/evenements";
 import Profil from "./pages/Profil/profil";
-import Etablissement from "./pages/Etablissement/Etablissement";
+import Etablissement from "./pages/Etablissement/etablissement";
 
 /*Import des layout*/
 import Header from "./components/layout/header";
