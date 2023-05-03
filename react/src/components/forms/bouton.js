@@ -8,7 +8,6 @@ export const StyledBouton = styled.button`
     cursor: pointer;
     background-image: linear-gradient(to right, ${colors.gris}, ${colors.noir});
     color: ${colors.blanc};
-    box-shadow: 0px 8px 8px ${colors.ombre};
     border: none;
     border-radius: 10px;
     font-family: ${fonts.titre};

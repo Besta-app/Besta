@@ -9,6 +9,16 @@ const StyledGlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: ${fonts.texte};
         background-color: ${colors.blanc};
+
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+            background-color:transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: ${colors.violet};
+            border-radius: 1rem;
+        }
     }
 `
 
