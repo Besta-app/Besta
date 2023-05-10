@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../utils/styles';
 import { Link } from 'react-router-dom';
 
-export const StyledBouton = styled.button`
-    width: 15vw;
+export const StyledLien = styled.button`
+    width: ${props => props.taille};
     height: 5vh;
     cursor: pointer;
     background-image: linear-gradient(to right, ${colors.gris}, ${colors.noir});
@@ -24,14 +24,31 @@ const StyledLink = styled(Link)`
     text-decoration: none;  
 `;
 
-function Bouton({ texte }) {
+function Lien({ texte, lien, taille }) {
+    switch (taille) {
+        case 'petit':
+            taille = '15vw';
+            break;
+        case 'moyen':
+            taille = '20vw';
+            break;
+        case 'grand':
+            taille = '25vw';
+            break;
+        default:
+            taille = '15vw';
+            break;
+    }
+
+console.log(taille);
+
     return (
-        <StyledLink to={'/'}>
-            <StyledBouton type="submit">
+        <StyledLink to={lien}>
+            <StyledLien taille={taille} type="submit">
                 {texte}
-            </StyledBouton>
+            </StyledLien>
         </StyledLink>
     )
 }
 
-export default Bouton;
+export default Lien;

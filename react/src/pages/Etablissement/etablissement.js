@@ -4,6 +4,7 @@ import CarteEvenement from "../../components/layout/carteEvenement";
 import CarteCarre from "../../components/layout/carteCarre";
 
 import { colors, fonts, Loader } from "../../utils/styles";
+import { H1, H2, H3 } from "../../components/styles";
 
 import { useEffect } from "react";
 import { useState } from "react";
@@ -33,39 +34,6 @@ const DivCartes = styled.div`
     }
     &::-webkit-scrollbar-thumb {
         background-color: ${colors.violet};
-        border-radius: 1rem;
-    }
-`;
-
-const H1Etablissement = styled.h1`
-    font-size: 3rem;
-    font-family: ${fonts.titre};
-    color: ${colors.noir};
-`;
-
-const H2Etablissement = styled.h2`
-    font-size: 2rem;
-    font-family: ${fonts.titre};
-    color: ${colors.noir};
-`;
-
-const H3Etalissement = styled.h3`
-    font-size: 1.5rem;
-    font-family: ${fonts.titre};
-    color: ${colors.noir};
-    position: relative;
-    width: fit-content;
-            
-    &::after {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0.5rem;
-        background-color: ${colors.violet};
-        margin: 0.25rem 0;
         border-radius: 1rem;
     }
 `;
@@ -101,8 +69,8 @@ function Etablissement({ idEtablissement }) {
                     <Loader />
                 ) : (
                     <div>
-                        <H1Etablissement>nom de l'établissement</H1Etablissement>
-                        <H2Etablissement>Les événements :</H2Etablissement>
+                        <H1>nom de l'établissement</H1>
+                        <H2>Les événements :</H2>
                         <DivCartes>
                             {/* {
                                 data.evenements.map((evenement) => {
@@ -130,8 +98,8 @@ function Etablissement({ idEtablissement }) {
                             <CarteEvenement titreEvenement='Fiesta boom bomm' dateEvenement='01/01/01' descriptionEvenement='test' imageEvenement='https://picsum.photos/200/300' lienEvenement='https://www.google.com/' />
                             <CarteEvenement titreEvenement='Fiesta boom bomm' dateEvenement='01/01/01' descriptionEvenement='test' imageEvenement='https://picsum.photos/200/300' lienEvenement='https://www.google.com/' />
                         </DivCartes>
-                        <H2Etablissement>Nos tarifs</H2Etablissement>
-                        <H3Etalissement>Nos boissons</H3Etalissement>
+                        <H2>Nos tarifs</H2>
+                        <H3>Nos boissons</H3>
                         <Div3Colonnes>
                             <p>Boisson 1</p>
                             <p>Boisson 2</p>
@@ -147,7 +115,7 @@ function Etablissement({ idEtablissement }) {
                             <p>Boisson 12</p>
                             <p>Boisson 13</p>
                         </Div3Colonnes>
-                        <H3Etalissement>Nos bouteilles</H3Etalissement>
+                        <H3>Nos bouteilles</H3>
                         <Div3Colonnes>
                             <p>Bouteille 1</p>
                             <p>Bouteille 2</p>
@@ -155,7 +123,7 @@ function Etablissement({ idEtablissement }) {
                             <p>Bouteille 4</p>
                             <p>Bouteille 5</p>
                         </Div3Colonnes>
-                        <H3Etalissement>Nos carrés</H3Etalissement>
+                        <H3>Nos carrés</H3>
                         <Div3Colonnes>
                             <CarteCarre texte={'Carré 1'} />
                             <CarteCarre texte={'Carré 2'} />

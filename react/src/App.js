@@ -12,6 +12,7 @@ import Map from "./pages/Map/map";
 import Evenements from "./pages/Evenements/evenements";
 import Profil from "./pages/Profil/profil";
 import Etablissement from "./pages/Etablissement/etablissement";
+import NouvelleReservation from "./pages/Reservation/nouvelleReservation";
 
 /*Import des layout*/
 import Header from "./components/layout/header";
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/evenements" element={<Evenements/>} />
           <Route exact path="/profil" element={<Profil/>}/>
           <Route exact path="/etablissement/:id" element={<Etablissement/>} />
+          <Route exact path="/etablissement/:id/nouvelle-reservation" element={<NouvelleReservation/>} />
         </Routes>
         </ThemeProvider>
       </BrowserRouter>

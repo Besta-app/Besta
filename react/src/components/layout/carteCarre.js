@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { StyledCarte, H2Carte } from "./carteEvenement"
-import Bouton from "../forms/bouton"
+import Lien from "../forms/lien"
 
 const StyledCarteCarre = styled(StyledCarte)`
     width: 200px;
@@ -10,7 +10,7 @@ const StyledCarteCarre = styled(StyledCarte)`
     margin: 0.5rem;
 `;
 
-const BoutonCarre = styled(Bouton)`
+const LienCarre = styled(Lien)`
     width: 150px;
     padding: 0.5rem 0.75rem;
 `;
@@ -19,9 +19,9 @@ function carteCarre({texte}){
     return(
         <StyledCarteCarre>
             <H2Carte>{texte}</H2Carte>
-            <BoutonCarre texte={'Voir les détails'} />
-            <BoutonCarre texte={'Modifier'} />
-            <BoutonCarre texte={'Supprimer'} />
+            <LienCarre texte={'Voir les détails'} />
+            <LienCarre texte={'Modifier'} />
+            <LienCarre texte={'Supprimer'} />
         </StyledCarteCarre>
     )
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors, fonts } from "../../utils/styles";
-import Bouton from "../forms/bouton";
+import Bouton from "../forms/lien";
 
 export const StyledCarte = styled.div`
     box-shadow: 0px 8px 8px ${colors.ombre};
