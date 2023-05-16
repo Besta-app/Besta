@@ -18,7 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $etablissement = \App\Models\Etablissement::all()->random();
-        dd(json_encode($etablissement->type_users()));
+        // dd(json_encode($etablissement->type_users()));
 
         return [
             'prenom' => fake()->firstName(),
