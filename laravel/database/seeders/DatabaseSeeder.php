@@ -104,13 +104,12 @@ class DatabaseSeeder extends Seeder
 
         // -- MODELE CARRE --
         //Chaque etablissement a entre 0 et 5 modeles de carre
-        $modele_carres = [];
-        foreach (Etablissement::all() as $et){
-            for ($i=0; $i < rand(0,5); $i++) { 
-                array_push($modele_carres, ["etablissement_id" => $et->id]);
-            }
-        }
-        foreach($modele_carres as $val){ModeleCarre::factory()->create($val);}
+        // foreach (Etablissement::all() as $et){
+        //     for ($i=0; $i < rand(0,5); $i++) { 
+        //         ModeleCarre::factory()->create(["etablissement_id" => $et->id]);
+        //     }
+        // }
+        // !!!!!!!!!!!! Necessite un factory pour ModeleCarre !!!!!!!!!!!!
 
 
         // -- TYPE USER --
