@@ -91,20 +91,17 @@ class DatabaseSeeder extends Seeder
         $evenements = [];
         $modele_carres = [];
         $type_users = [
-            ["nom"=>"Proprietaire","etablissement_id"=>Etablissement::where("nom","Bloom bar")->first()->id],
-            ["nom"=>"OrganisateurPlus","etablissement_id"=>Etablissement::where("nom","Bloom bar")->first()->id],
-            ["nom"=>"Organisateur","etablissement_id"=>Etablissement::where("nom","Bloom bar")->first()->id],
-
-            ["nom"=>"Proprietaire","etablissement_id"=>Etablissement::where("nom","Arena")->first()->id],
-            ["nom"=>"OrganisateurPlus","etablissement_id"=>Etablissement::where("nom","Arena")->first()->id],
-            ["nom"=>"Organisateur","etablissement_id"=>Etablissement::where("nom","Arena")->first()->id],
+            ["nom"=>"Proprietaire"],
+            ["nom"=>"OrganisateurPlus"],
+            ["nom"=>"Organisateur"],
         ];
 
         foreach($modele_carres as $val){ModeleCarre::create($val);}
         foreach($evenements as $val){Evenement::create($val);}
         Evenement::factory(30)->create();
-        foreach($type_users as $val){TypeUser::create($val);}
-
+        Etablissement::all()->each(function($etablissement) use ($type_users){
+            $etablissement->type_users()->createMany($type_users);
+        });
 
 
         //---------------------------------------------------//
