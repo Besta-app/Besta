@@ -27,11 +27,17 @@ class DatabaseSeeder extends Seeder
         //---------------------------------------------------//
         //            TABLES AVEC 0 DEPENDANCES              //
         //---------------------------------------------------//
+        // -- TYPE EVENEMENT --
         $type_evenements = [
             ["nom"=>"showcase"],
             ["nom"=>"concert"], 
             ["nom"=>"soiree"], 
         ];
+        foreach($type_evenements as $val){TypeEvenement::create($val);}
+        
+
+        
+        // -- DROIT USER --
         $droit_users = [
             ["nom"=>"creer_evenement"],
             ["nom"=>"modifier_evenement"],
@@ -52,22 +58,25 @@ class DatabaseSeeder extends Seeder
             ["nom"=>"modifier_user"],
             ["nom"=>"supprimer_user"]
         ];
+        foreach($droit_users as $val){DroitUser::create($val);}
+
+
+        // -- TYPE ETABLISSEMENT --
         $type_etablissements = [
             ["nom"=>"bar"], 
             ["nom"=>"boite de nuit"], 
             ["nom"=>"village"], 
             ["nom"=>"soiree privee"]
         ];
-        
-        foreach($type_evenements as $val){TypeEvenement::create($val);}
-        foreach($droit_users as $val){DroitUser::create($val);}
         foreach($type_etablissements as $val){TypeEtablissement::create($val);}
+
 
 
 
         //---------------------------------------------------//
         //            TABLES AVEC 1 DEPENDANCES              //
         //---------------------------------------------------//
+        // -- ETBALISSEMENT --
         $etablissements = [
             [
                 "nom"=>"Bloom bar",
@@ -85,29 +94,46 @@ class DatabaseSeeder extends Seeder
         
 
 
+
         //---------------------------------------------------//
         //            TABLES AVEC 2 DEPENDANCES              //
         //---------------------------------------------------//
-        $evenements = [];
+        // -- EVENEMENT --
+        Evenement::factory(30)->create();
+
+
+        // -- MODELE CARRE --
+        //Chaque etablissement a entre 0 et 5 modeles de carre
         $modele_carres = [];
+        foreach (Etablissement::all() as $et){
+            for ($i=0; $i < rand(0,5); $i++) { 
+                array_push($modele_carres, ["etablissement_id" => $et->id]);
+            }
+        }
+        foreach($modele_carres as $val){ModeleCarre::factory()->create($val);}
+
+
+        // -- TYPE USER --
         $type_users = [
             ["nom"=>"Proprietaire"],
             ["nom"=>"OrganisateurPlus"],
             ["nom"=>"Organisateur"],
         ];
-
-        foreach($modele_carres as $val){ModeleCarre::create($val);}
-        foreach($evenements as $val){Evenement::create($val);}
-        Evenement::factory(30)->create();
         Etablissement::all()->each(function($etablissement) use ($type_users){
             $etablissement->type_users()->createMany($type_users);
         });
 
 
+
         //---------------------------------------------------//
         //            TABLES AVEC 3 DEPENDANCES              //
         //---------------------------------------------------//
+        // -- CARRE --
         $carres = [];
+        foreach($carres as $val){Carre::create($val);}
+
+
+        // -- USER --
         $users = [
             ['prenom' => 'root', 'nom' => 'root', 'email' => 'root@root.root',"password" => bcrypt("root")],
             ['prenom' => 'Nicolas', 'nom' => 'delahaie', 'email' => 'nicolas@gmail.com',"password" => bcrypt("admin")],
@@ -116,26 +142,31 @@ class DatabaseSeeder extends Seeder
             ['prenom' => 'Alexandre', 'nom' => 'pascal', 'email' => 'alexandre@gmail.com',"password" => bcrypt("admin")],
             ['prenom' => 'Robin', 'nom' => 'alonzo', 'email' => 'robin@gmail.com',"password" => bcrypt("admin")],
         ];
-        $permettre = [];
-        
-        foreach($carres as $val){Carre::create($val);}
         foreach($users as $val){User::factory()->create($val);}
         User::factory(10)->create();
+
+
+        // -- PERMETTRE --
+        $permettre = [];
         foreach($permettre as $val){Permettre::create($val);}
+
 
         
         
         //---------------------------------------------------//
         //            TABLES AVEC 4 DEPENDANCES              //
         //---------------------------------------------------//
+        // -- RESERVATIONS --
         $reservations = [];
         foreach($reservations as $val){Reservations::create($val);}
         
 
 
+
         //---------------------------------------------------//
         //            TABLES AVEC 5 DEPENDANCES              //
         //---------------------------------------------------//
+        // -- ACCOMPAGNANT --
         $accompagnants = [];
         foreach($accompagnants as $val){Accompagnant::create($val);}
     }
