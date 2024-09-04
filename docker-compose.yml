@@ -1,0 +1,53 @@
+version: "1"
+name: "besta-db"
+services:
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./public:/var/www/html
+    ports:
+      - "8000:80"
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: Besta
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+
+  # laravel:
+  #   build:
+  #     context: ./apis-laravel
+  #     dockerfile: Dockerfile
+  #   image: laravel_app
+  #   container_name: apis-laravel
+  #   tty: true
+  #   volumes:
+  #     - ./apis-laravel:/var/www
+
+  # npm:
+  #   build:
+  #     context: ./chemin_vers_votre_projet_react
+  #     dockerfile: Dockerfile
+  #   image: react_app
+  #   container_name: appli-react
+  #   restart: unless-stopped
+  #   tty: true
+  #   environment:
+  #     SERVICE_NAME: npm
+  #     SERVICE_TAGS: dev
+  #   working_dir: /app
+  #   volumes:
+  #     - ./chemin_vers_votre_projet_react:/app

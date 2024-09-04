@@ -40,3 +40,6 @@ laravel/yarn-error.log
 laravel/.fleet
 laravel/.idea
 laravel/.vscode
+
+#node_modules
+node_modules
